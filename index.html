@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo app</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="index.js"></script>
+    
+    <!-- Include font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+</head>
+<body onload="start()">
+    <template id="task-template">
+        <li id="task" class="task" draggable="true" ondrag="dragTask(event)" oncontextmenu="openContextMenu(event)">
+
+        </li>
+    </template>
+    <template id="create-task-template">
+        <li id="create-task" class="create-task">
+            <input id="create-input-task" maxlength="30" onfocusout="enterCreateTask(event)" class="create-task-input" type="text" placeholder="Enter task title" onkeypress="enterCreateTask(event)">
+        </li>
+    </template>  
+
+
+
+    <div class="content">
+        <div class="sidebar">
+        
+            <a class="logo" href="/">
+                <img src="images/b14b3e08e7d6b25efd4154682838ab5a.png" sizes="80x80">
+                <span><b>ToDo app</b></span>
+                <hr>
+            </a>
+        </div>
+        <div class="tasks-container">
+    
+            <div class="banner">
+                <div class="banner-main-col">
+                    <h1>My Day</h1>
+    
+                    <div class="banner-data">
+                        <span id="banner-day-data">October,  27 Friday</span>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="tasks-table">
+                <div class="task-col">
+                    <span class="task-col-title"><b>ToDo</b></span> 
+                    <ul id="todo-task-list" class="tasks-list" ondrop="dropTask(event)" ondragover="allowDrop(event)">
+    
+                    </ul>
+                    <div class="new-task">
+                        <span class="material-symbols-outlined new-task-btn" onclick="addTask(TaskType.Todo);">
+                            add_circle
+                            </span>
+                    </div>
+                </div>
+                <div class="task-col">
+                    <span class="task-col-title"><b>In Progress</b></span> 
+                    <ul id="in-progress-task-list" class="tasks-list" ondrop="dropTask(event)" ondragover="allowDrop(event)">
+    
+                    </ul>
+                    <div class="new-task">
+                        <span class="material-symbols-outlined new-task-btn" onclick="addTask(TaskType.InProgress);">
+                            add_circle
+                            </span>
+                    </div>
+                </div>
+                <div class="task-col">
+                    <span class="task-col-title"><b>Done</b></span> 
+                    <ul id="done-task-list" class="tasks-list" ondrop="dropTask(event)" ondragover="allowDrop(event)">
+    
+                    </ul>
+                    <div class="new-task">
+                        <span class="material-symbols-outlined new-task-btn" onclick="addTask(TaskType.Done);">
+                            add_circle
+                            </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="task-context-menu" id="task-context-menu" onfocusout="hideContextMenu()">
+            <div onclick="deleteSelectedTask()">Delete</div>
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,320 @@
+:root{
+    --bg-color: #111112;
+    --items-color: #191919;
+    --accent-color: #1B59D0;
+    --banner-color: #1D1D1D;
+    --hover-color: #292929;
+
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.content{
+    height: 100vh;
+    width: 100vw;
+
+    background-color: var(--bg-color);  
+
+
+    flex-direction: row;
+    display: flex;
+}
+
+
+.sidebar{
+    width: 252px;
+    min-width: 252px;
+
+    height: 100vh;
+
+    z-index: 99;
+    background-color: var(--items-color);
+
+    display: flex;
+
+}
+
+.logo{
+    height: 15%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    text-decoration: none;
+
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--items-color);
+}
+
+.logo span{
+    color: rgb(218, 218, 218);
+    font-size: larger;
+    margin-top: 5px;
+}
+
+.logo hr{
+    margin-top: 10px;
+    width: 100%;
+}
+
+
+.logo:hover{
+    background-color: var(--items-color);
+}
+
+.tasks-container{
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+.banner{
+    width: 100%;
+    height: 15%;
+
+    background-color: var(--banner-color);
+
+
+    padding: 10px;
+
+    display: flex;
+
+    align-items: end;
+    
+}
+
+
+  
+
+.banner-main-col{
+    color: rgb(218, 218, 218);
+    
+    padding-top: 30px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.banner-data{
+    margin-top: 20px;
+}
+
+.tasks-table{
+    display: flex;
+    padding: 10px;
+
+    width: 100%;
+    height: 85%;
+
+    justify-content: center;
+
+
+}
+
+.task-col{
+    display: flex;
+    flex-direction: column;
+
+    width: 30%;
+    height: 95%;
+    min-width: 252px;
+
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+    border-radius: 10px;
+
+    margin-left: 10px;
+    margin-right: 10px;
+    
+    background-color: var(--items-color);
+}
+
+.task-col:hover{
+    border: 2px solid var(--accent-color);
+    .new-task{
+        display: flex;
+    }
+}
+
+.task-col-title{
+    height: 5%;
+    font-size: large;
+    color: rgb(218, 218, 218);
+}
+
+.tasks-list{
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 5px;
+
+    overflow-x: auto;
+
+}
+
+.task{
+    width: 100%;
+    max-width: 100%;
+    padding: 7px;
+    font-size: large;
+    margin-top: 10px;
+    color: rgb(218, 218, 218);
+
+    display: flex;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+}
+
+
+
+.task-vert{
+    margin-left: auto;
+    color: rgb(218, 218, 218) !important;
+    cursor: pointer;
+
+    display: none !important;
+    background: none;
+    border: none;
+
+    
+}
+
+.task:hover{
+    background-color: var(--hover-color);   
+    border-radius: 10px;
+
+    .task-vert{
+        display: inline !important;
+    }
+
+}
+
+
+.new-task{
+
+    width: 100%;
+    height: 20%;
+    margin-top: auto;
+
+    display: none;
+
+    justify-content: flex-end;
+    align-items: end;
+    padding: 15px;
+    
+
+    margin-right: 10px;
+
+    color: var(--accent-color);
+
+}
+
+.new-task-btn{
+    /* margin-left: auto; */
+    font-size: 64px !important;
+    cursor: pointer;
+}
+
+.create-task{
+    width: 100%;
+    padding: 7px;
+    font-size: large;
+    margin-top: 10px;
+    color: rgb(218, 218, 218);
+
+    display: flex;
+
+    background-color: var(--hover-color);   
+    border-radius: 10px;
+
+    border: rgb(218, 218, 218);
+}
+
+.task-context-menu{
+    width: 100px;
+    height: 100px;
+    background-color:#1B59D0;
+
+    position: absolute;
+    z-index: 999999999;
+
+    visibility: hidden;
+}
+
+.create-task-input{
+    outline: none;
+    background: none;
+    border: none;
+    font-size: large;
+    color: rgb(218, 218, 218);
+}
+
+
+
+@media screen and (max-width: 1024px) {
+    body{
+        flex-direction: column;
+    }
+    
+    .sidebar{
+        height: 10%;
+        width: 100%;
+        max-width: none;
+        display: none;
+
+        background-color: var(--items-color);
+    }
+
+    .logo{
+        flex-direction: row;
+
+        height: 100%;
+        width: 180px;
+
+
+        align-items: center;
+        justify-content: none;
+    }
+
+    .logo span{
+
+        margin-top: 0;
+        margin-left: 5px;
+    }
+
+    .banner{
+        padding: 20px;
+    }
+
+    .tasks-table{
+        justify-content: left;
+        overflow-y: scroll;
+    }
+
+    .task-col{
+        display: inline-block;
+    }
+
+
+}
